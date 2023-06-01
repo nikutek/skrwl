@@ -4,8 +4,10 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  color: rgb(229 231 235);
+  line-height: 1.3;
   font-weight: 400;
+  letter-spacing: 1px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
