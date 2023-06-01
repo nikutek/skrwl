@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 
 const RootLayout = () => {
   return (
-    <div className=" bg-gray-950 h-screen w-screen flex flex-row">
+    <div className=" bg-gray-950 h-screen w-screen flex flex-col-reverse md:flex-row">
       <NavBar />
 
       <Outlet />
