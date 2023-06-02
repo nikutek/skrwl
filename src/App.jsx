@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+import LoginPage from "./pages/LogInPage";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
@@ -21,8 +22,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className=" bg-zinc-100 w-full min-h-screen">
-      <RouterProvider router={router} />
+    <div className=" bg-gray-950 h-screen w-screen">
+      <LoginPage />
+      {/* {isLoggedIn && <RouterProvider router={router} />}0 */}
     </div>
   );
 }
