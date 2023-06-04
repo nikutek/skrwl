@@ -1,22 +1,22 @@
 // Import the functions you need from the SDKs you need
-import firebase from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREASE_APP_ID,
+  apiKey: "AIzaSyDgNlzjp1WjJhN8NtPouDIokE6i0tJpi7A",
+  authDomain: "skurwiel-auth.firebaseapp.com",
+  projectId: "skurwiel-auth",
+  storageBucket: "skurwiel-auth.appspot.com",
+  messagingSenderId: "394575329509",
+  appId: "1:394575329509:web:730b039cf0dfb32c273c0c",
 };
 
 // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-
+const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
+export const provider = new GoogleAuthProvider();
 export default app;
