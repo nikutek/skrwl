@@ -1,4 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./storage/store";
 
 import LoginPage from "./pages/LogInPage";
 import RootLayout from "./pages/RootLayout";
@@ -24,7 +26,10 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className=" bg-gray-950 h-screen w-screen">
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <LoginPage />
+        {/* <RouterProvider router={router} /> */}
+      </Provider>
     </div>
   );
 }

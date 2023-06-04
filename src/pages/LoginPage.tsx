@@ -1,26 +1,56 @@
 import React, { useState } from "react";
 import FormGroup from "../components/FormGroup";
 
-import { Auth } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setActiveUser,
-  setUserLogOutState,
-  selectUserEmail,
-  selectUserName,
-} from "../storage/UserSlice";
+// import {
+//   setActiveUser,
+//   setUserLogOutState,
+//   selectUserEmail,
+//   selectUserName,
+// } from "../storage/UserSlice";
+// import UserSlice from "../storage/UserSlice";
+
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth, provider } from "../Firebase";
+import { setActiveUser } from "../storage/UserSlice";
 
 const LoginPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const dispatch = useDispatch();
-  const userName = useSelector(selectUserName);
-  const userEmail = useSelector(selectUserEmail);
+  // const userName = useSelector(selectUserName);
+  // const userEmail = useSelector(selectUserEmail);
 
   const inputStyle =
     "text-lg text-gray-200 py-1 px-2 rounded-md bg-gray-600 w-full";
 
   const LogInBtnHandler = () => {
-    console.log("huj");
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        if (!credential) return;
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        dispatch(
+          setActiveUser({
+            userName: user.displayName,
+            userEmail: user.email,
+          })
+        );
+        // // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
   };
 
   const RegisterBtnHandler = () => {};
