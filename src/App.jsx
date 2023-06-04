@@ -16,6 +16,7 @@ const router = createBrowserRouter([
       { path: "", element: <HomePage /> },
       { path: "/history", element: <HistoryPage /> },
       { path: "/options", element: <OptionsPage /> },
+      { path: "/login", element: <LoginPage /> },
     ],
   },
 ]);
@@ -23,8 +24,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className=" bg-gray-950 h-screen w-screen">
-      <LoginPage />
-      {/* {isLoggedIn && <RouterProvider router={router} />}0 */}
+      <RouterProvider router={router} />
     </div>
   );
 }

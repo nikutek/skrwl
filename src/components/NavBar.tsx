@@ -1,7 +1,12 @@
 import React from "react";
 import NavButton from "../components/NavButton";
 
-import { faHouse, faHistory, faGears } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHouse,
+  faHistory,
+  faGears,
+  faRightToBracket,
+} from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
   return (
@@ -12,6 +17,7 @@ const NavBar = () => {
       <NavButton destination="/" icon={faHouse}></NavButton>
       <NavButton destination="/history" icon={faHistory}></NavButton>
       <NavButton destination="/options" icon={faGears}></NavButton>
+      <NavButton destination="/login" icon={faRightToBracket}></NavButton>
     </nav>
   );
 };
