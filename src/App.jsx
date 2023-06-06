@@ -2,7 +2,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./storage/store";
 
-import LoginPage from "./pages/LogInPage";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
@@ -18,7 +17,6 @@ const router = createBrowserRouter([
       { path: "", element: <HomePage /> },
       { path: "/history", element: <HistoryPage /> },
       { path: "/options", element: <OptionsPage /> },
-      { path: "/login", element: <LoginPage /> },
     ],
   },
 ]);
@@ -27,8 +25,7 @@ function App() {
   return (
     <div className=" bg-gray-950 h-screen w-screen">
       <Provider store={store}>
-        <LoginPage />
-        {/* <RouterProvider router={router} /> */}
+        <RouterProvider router={router} />
       </Provider>
     </div>
   );
