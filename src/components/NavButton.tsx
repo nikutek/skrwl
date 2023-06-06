@@ -8,7 +8,7 @@ interface props {
   icon: IconProp;
 }
 
-const Button: FC<props> = ({ destination, icon }) => {
+const NavButton: FC<props> = ({ destination, icon }) => {
   const activeStyles =
     "flex justify-center items-center p-2 bg-sky-500 w-12 h-12 rounded-full duration-150 ease-in-out";
 
@@ -27,4 +27,4 @@ const Button: FC<props> = ({ destination, icon }) => {
   );
 };
 
-export default Button;
+export default NavButton;
