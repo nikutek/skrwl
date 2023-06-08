@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setUserLogOutState } from "../storage/UserSlice";
+import { setUserLogOutState } from "../../storage/UserSlice";
 
 import { signOut, getAuth } from "firebase/auth";
-import { auth, provider } from "../Firebase";
-import { setActiveUser } from "../storage/UserSlice";
+import { auth, provider } from "../../Firebase";
+import { setActiveUser } from "../../storage/UserSlice";
 
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
