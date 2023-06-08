@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NavButton from "../components/NavButton";
+import NavButton from "../components/Navbar/NavButton";
 
 const ErrorPage = () => {
   return (

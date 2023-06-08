@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth, provider } from "../Firebase";
-import { setActiveUser } from "../storage/UserSlice";
+import { auth, provider } from "../../Firebase";
+import { setActiveUser } from "../../storage/UserSlice";
 
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
