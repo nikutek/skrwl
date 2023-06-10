@@ -7,15 +7,35 @@ const HomePage = () => {
   const userName: string = useSelector(selectUserName);
 
   return (
-    <div className="  w-full h-fit flex flex-col justify-center items-center ">
-      <h1 className=" text-center m-4 text-xl">
+    <div className="  flex h-fit w-full flex-col items-center justify-center ">
+      <h1 className=" m-4 text-center text-xl">
         Skurwiel: {userName ? userName.split(" ")[0] : "Guest"}
       </h1>
-      <div className="h-1/2 w-full flex justify-center flex-col items-center gap-3 ">
-        <TrainingTile />
-        <TrainingTile />
-        <TrainingTile />
-        <TrainingTile />
+      <div className="flex h-1/2 w-full flex-col items-center justify-center gap-3 ">
+        <TrainingTile
+          name="Training Name"
+          exercise1={"exercise1"}
+          exercise2={"exercise2"}
+          exercise3={"exercise3"}
+        />
+        <TrainingTile
+          name="Training Name"
+          exercise1={"exercise1"}
+          exercise2={"exercise2"}
+          exercise3={"exercise3"}
+        />
+        <TrainingTile
+          name="Training Name"
+          exercise1={"exercise1"}
+          exercise2={"exercise2"}
+          exercise3={"exercise3"}
+        />
+        <TrainingTile
+          name="Training Name"
+          exercise1={"exercise1"}
+          exercise2={"exercise2"}
+          exercise3={"exercise3"}
+        />
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import HistoryPage from "./pages/HistoryPage";
 import OptionsPage from "./pages/OptionsPage";
+import TrainingPage from "./pages/TrainingPage";
 
 const router = createBrowserRouter([
   {
@@ -17,13 +18,14 @@ const router = createBrowserRouter([
       { path: "", element: <HomePage /> },
       { path: "/history", element: <HistoryPage /> },
       { path: "/options", element: <OptionsPage /> },
+      { path: "/training", element: <TrainingPage /> },
     ],
   },
 ]);
 
 function App() {
   return (
-    <div className=" bg-gray-950 min-h-screen w-screen overflow-hidden">
+    <div className=" min-h-screen w-screen overflow-hidden bg-gray-950">
       <Provider store={store}>
         <RouterProvider router={router} />
       </Provider>
