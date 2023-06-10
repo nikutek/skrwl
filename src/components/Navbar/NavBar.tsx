@@ -18,8 +18,8 @@ const NavBar = () => {
 
   return (
     <nav
-      className=" fixed bottom-0 w-full h-1/12 flex flex-row justify-center items-center gap-7 py-3  bg-gray-800 text-center shadow-xl shadow-gray-600
-     md:w-1/12 md:h-full md:flex-col"
+      className=" h-1/12 fixed bottom-0 flex w-full flex-row items-center justify-center gap-7 bg-gray-800  py-3 text-center shadow-xl shadow-gray-600
+     md:h-full md:w-1/12 md:flex-col"
     >
       <NavButton destination="/" icon={faHouse}></NavButton>
       {token && [
