@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, provider } from "../../Firebase";
-import { setActiveUser } from "../../storage/UserSlice";
+import { setActiveUser } from "../../storage/userSlice";
 
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -45,7 +45,7 @@ const NavBarLoginButton = ({ icon }) => {
 
   return (
     <button
-      className="flex justify-center items-center border-sky-500 border-4 p-2 bg-gray-700 w-12 h-12 rounded-full duration-150 ease-in-out hover:bg-sky-700 hover:text-2xl hover:border-none hover:saturate-50"
+      className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-sky-500 bg-gray-700 p-2 duration-150 ease-in-out hover:border-none hover:bg-sky-700 hover:text-2xl hover:saturate-50 md:w-3/4"
       onClick={LoginHandler}
     >
       <FontAwesomeIcon icon={icon} style={{ color: "#e5e7eb" }} />
