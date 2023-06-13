@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectTraining } from "../storage/trainingSlice";
+import RepInput from "../components/RepInput";
 
 function TrainingPage() {
   const training = useSelector(selectTraining);
@@ -8,13 +9,11 @@ function TrainingPage() {
 
   if (training.length > 0) {
     return (
-      <div className="col flex h-screen  flex-col items-center justify-center gap-20 overflow-hidden ">
+      <div className="col flex h-full  flex-col items-center justify-around  overflow-hidden ">
         <h1 className=" text-4xl font-bold text-sky-500">{training[0].name}</h1>
 
-        <ul className=" flex h-1/3 flex-col items-center justify-around">
-          <li>
-            Seria 1 <input type="number" className="" />
-          </li>
+        <ul className=" flex h-1/2 w-full flex-col items-center justify-around">
+          <RepInput />
           <li>Seria 2</li>
           <li>Seria 3</li>
         </ul>

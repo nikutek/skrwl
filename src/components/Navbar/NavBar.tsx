@@ -11,7 +11,7 @@ import {
 import NavBarLoginButton from "./NavBarLoginButton";
 import NavbarLogoutButton from "./NavbarLogoutButton";
 import { useSelector } from "react-redux";
-import { selectUserToken } from "../../storage/userSlice";
+import { selectUserToken } from "../../storage/UserSlice";
 
 const NavBar = () => {
   const token = useSelector(selectUserToken);
