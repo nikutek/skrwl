@@ -23,6 +23,6 @@ const trainingSlice = createSlice({
 
 export const { addExercise, removeExercise } = trainingSlice.actions;
 
-export const selectTraining = (state) => state;
+export const selectTraining = (state) => state.training;
 
 export default trainingSlice.reducer;
