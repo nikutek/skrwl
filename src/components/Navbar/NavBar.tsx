@@ -11,15 +11,15 @@ import {
 import NavBarLoginButton from "./NavBarLoginButton";
 import NavbarLogoutButton from "./NavbarLogoutButton";
 import { useSelector } from "react-redux";
-import { selectUserToken } from "../../storage/UserSlice";
+import { selectUserToken } from "../../storage/userSlice";
 
 const NavBar = () => {
   const token = useSelector(selectUserToken);
 
   return (
     <nav
-      className=" h-1/12 fixed bottom-0 flex w-screen flex-row items-center justify-center gap-7 bg-gray-800  py-3 text-center shadow-xl shadow-gray-600
-     md:h-full md:w-1/12 md:flex-col"
+      className=" h-1/12 fixed bottom-0 z-50 flex w-screen flex-row items-center justify-center gap-7  bg-gray-800 py-3 text-center shadow-xl
+     shadow-gray-600 md:h-full md:w-1/12 md:flex-col"
     >
       <NavButton destination="/" icon={faHouse}></NavButton>
       {token && [
