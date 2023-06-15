@@ -11,12 +11,9 @@ const trainingSlice = createSlice({
     addExercise: (state, action: PayloadAction<PendingExercise>) => {
       state.push(action.payload);
     },
-    removeExercise: (state, action) => {
+    removeExercise: (state) => {
       // to do sprawdzenia bo moze nie dzialac
-      state.filter((item) => {
-        return item !== action.payload;
-      });
-      console.log(state);
+      state.shift();
     },
   },
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectUserName } from "../storage/UserSlice";
-import TrainingTile from "../components/Navbar/TrainingTile";
+import { selectUserName } from "../storage/userSlice";
+import TrainingTile from "../components/TrainingTile";
 
 const HomePage = () => {
   const userName: string = useSelector(selectUserName);

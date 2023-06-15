@@ -34,7 +34,7 @@ function RepInput({ submitSet, set }) {
   };
 
   return (
-    <li className="flex w-full flex-col items-center">
+    <li className="my-10 flex w-full grow flex-col items-center">
       <h2 className="w-fit whitespace-nowrap text-2xl font-thin">SET {set}</h2>
       <div className="grow text-center">
         <div className="mx-2 flex items-center">

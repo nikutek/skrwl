@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addExercise } from "../../storage/trainingSlice";
-import { selectTraining } from "../../storage/trainingSlice";
+import { addExercise } from "../storage/trainingSlice";
+import { selectTraining } from "../storage/trainingSlice";
 import { useNavigate } from "react-router-dom";
 
 interface trainingProps {
@@ -19,8 +19,8 @@ function TrainingTile({ name, exercise1, exercise2, exercise3 }) {
     e.preventDefault();
     // TODO: dodanie cwiczen do reduxa
     if (exercise1) dispatch(addExercise({ name: exercise1 }));
-    if (exercise2) dispatch(addExercise({ name: exercise1 }));
-    if (exercise3) dispatch(addExercise({ name: exercise1 }));
+    if (exercise2) dispatch(addExercise({ name: exercise2 }));
+    if (exercise3) dispatch(addExercise({ name: exercise3 }));
 
     // TODO: przekierowanie do /training
     navigate("/training");
