@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTraining, removeExercise } from "../storage/trainingSlice";
-import { selectUserToken } from "../storage/userSlice";
+import { selectUserToken } from "../storage/UserSlice";
 import RepInput from "../components/SetInput";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
