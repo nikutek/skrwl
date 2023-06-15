@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectUserName } from "../storage/UserSlice";
+import { selectUserName } from "../storage/userSlice";
 import TrainingTile from "../components/TrainingTile";
 
 const HomePage = () => {
