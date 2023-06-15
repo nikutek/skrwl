@@ -12,7 +12,7 @@ import {
 import NavBarLoginButton from "./NavBarLoginButton";
 import NavbarLogoutButton from "./NavbarLogoutButton";
 import { useSelector } from "react-redux";
-import { selectUserToken } from "../../storage/UserSlice";
+import { selectUserToken } from "../../storage/userSlice";
 import { selectTraining } from "../../storage/trainingSlice";
 
 const NavBar = () => {
