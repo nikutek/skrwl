@@ -7,11 +7,16 @@ import { useNavigate } from "react-router-dom";
 interface trainingProps {
   name: string;
   exercise1: string;
-  exercise2: string;
-  exercise3: String;
+  exercise2?: string;
+  exercise3?: string;
 }
 
-function TrainingTile({ name, exercise1, exercise2, exercise3 }) {
+function TrainingTile({
+  name,
+  exercise1,
+  exercise2,
+  exercise3,
+}: trainingProps) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
