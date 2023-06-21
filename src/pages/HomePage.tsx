@@ -7,34 +7,45 @@ const HomePage = () => {
   const userName: string = useSelector(selectUserName);
 
   return (
-    <div className="  flex h-fit w-full flex-col items-center justify-center ">
+    <div className="  my-3 flex h-fit w-full flex-col items-center justify-center">
       <h1 className=" m-4 text-center text-xl">
         Skurwiel: {userName ? userName.split(" ")[0] : "Guest"}
       </h1>
-      <div className="flex h-1/2 w-full flex-col items-center justify-center gap-3 ">
+      <div className="flex h-1/2 w-full flex-col items-center justify-center gap-5 ">
         <TrainingTile
-          name="Training Name"
-          exercise1={"exercise1"}
-          exercise2={"exercise2"}
-          exercise3={"exercise3"}
+          name="Plecy"
+          exercise1={"Wiosłowanie"}
+          exercise2={"Wiosłowanie"}
         />
         <TrainingTile
-          name="Training Name"
-          exercise1={"exercise1"}
-          exercise2={"exercise2"}
-          exercise3={"exercise3"}
+          name="Biceps"
+          exercise1={"Bicep curl"}
+          exercise2={"Młotki"}
         />
         <TrainingTile
-          name="Training Name"
-          exercise1={"exercise1"}
-          exercise2={"exercise2"}
-          exercise3={"exercise3"}
+          name="Barki"
+          exercise1={"Wzniosy bokiem"}
+          exercise2={"Shoulder press"}
         />
         <TrainingTile
-          name="Training Name"
-          exercise1={"exercise1"}
-          exercise2={"exercise2"}
-          exercise3={"exercise3"}
+          name="Triceps"
+          exercise1={"Overhead extension"}
+          exercise2={"Skull crusher"}
+          exercise3={"Kickbacks"}
+        />
+
+        <TrainingTile
+          name="Brzuch"
+          exercise1={"Plank"}
+          exercise2={"Sit up"}
+          exercise3={"Ab wheel"}
+        />
+
+        <TrainingTile
+          name="Klatka piersiowa"
+          exercise1={"Floor chest press"}
+          exercise2={"Floor fly"}
+          exercise3={"Upward fly"}
         />
       </div>
     </div>

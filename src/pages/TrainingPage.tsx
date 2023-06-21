@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTraining, removeExercise } from "../storage/trainingSlice";
 import { selectUserToken } from "../storage/userSlice";
 import RepInput from "../components/SetInput";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { flushSync } from "react-dom";
+import RestBar from "../components/RestBar";
 
 interface setInfo {
   reps: number;
@@ -12,6 +14,7 @@ interface setInfo {
 }
 
 function TrainingPage() {
+  const [isRest, setisRest] = useState(false);
   const [set, setSet] = useState(1);
   const [doneSets, setDoneSets] = useState<setInfo[]>([]);
   const [score, setScore] = useState(0);
@@ -19,9 +22,12 @@ function TrainingPage() {
   const userToken = useSelector(selectUserToken);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const EndBtnRef = useRef<null | HTMLButtonElement>(null);
 
+  // Przekierowanie po zrobieniu wszystkich ćwiczeń
   useEffect(() => {
     console.log(training);
+
     if (!training.length) {
       console.log("koniec");
 
@@ -31,7 +37,10 @@ function TrainingPage() {
     console.log(doneSets, set, score);
   }, [training, set]);
 
+  // Zakończenie serii
   const submitSet = (reps: number, weight: number) => {
+    scrollToBottom();
+
     setSet((currentValue) => {
       return currentValue + 1;
     });
@@ -39,8 +48,12 @@ function TrainingPage() {
     setDoneSets((currentValue) => {
       return [...currentValue, { reps: reps, weight: weight }];
     });
+
+    // REST TIME
+    setisRest(true);
   };
 
+  // Zakończenie całego ćwiczenia
   const endExerciseBtnHandler = () => {
     // zapisanie wynikow if zalogowany
     if (userToken) {
@@ -59,11 +72,16 @@ function TrainingPage() {
     dispatch(removeExercise());
   };
 
+  const scrollToBottom = () => {
+    console.log(EndBtnRef.current);
+    EndBtnRef?.current?.scrollIntoView();
+  };
+
   if (training.length > 0) {
     return (
-      <div className=" flex h-fit grow  flex-col items-center justify-center  overflow-scroll ">
+      <div className=" mb-[calc(100vh/12)]  flex h-fit grow  flex-col items-center justify-center overflow-scroll">
         <h1 className=" m-10 text-4xl font-bold text-sky-500">
-          {training[0].name} {set}
+          {training[0].name}
         </h1>
 
         <ul className=" flex w-fit grow flex-col items-center justify-center ">
@@ -77,12 +95,17 @@ function TrainingPage() {
               </li>
             );
           })}
-          <RepInput submitSet={submitSet} set={set} />
+          {isRest ? (
+            <RestBar setIsRest={setisRest} duration={120} />
+          ) : (
+            <RepInput submitSet={submitSet} set={set} />
+          )}
         </ul>
         {doneSets.length >= 3 && (
           <button
-            className="m-4 w-1/2 rounded-xl border-2 bg-sky-500 py-1 text-2xl"
+            className="m-4  w-1/2 rounded-xl border-2 bg-sky-500 py-1 text-2xl"
             onClick={endExerciseBtnHandler}
+            ref={EndBtnRef}
           >
             End Training
           </button>
@@ -90,7 +113,7 @@ function TrainingPage() {
       </div>
     );
   }
-  return <div></div>;
+  return;
 }
 
 export default TrainingPage;
