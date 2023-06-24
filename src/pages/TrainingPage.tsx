@@ -79,17 +79,20 @@ function TrainingPage() {
 
   if (training.length > 0) {
     return (
-      <div className=" mb-[calc(100vh/12)]  flex h-fit grow  flex-col items-center justify-center overflow-scroll">
+      <div className=" mb-[calc(100vh/12)]  flex h-fit grow  flex-col items-center justify-center overflow-scroll md:mb-0 md:h-auto md:w-full md:overflow-x-hidden md:overflow-y-scroll">
         <h1 className=" m-10 text-4xl font-bold text-sky-500">
           {training[0].name}
         </h1>
 
-        <ul className=" flex w-fit grow flex-col items-center justify-center ">
+        <ul className=" flex w-fit grow flex-col items-center justify-center md:w-full md:p-4">
           {doneSets.map((set, idx) => {
             return (
-              <li className="flex w-full flex-row p-4 brightness-50" key={idx}>
-                <p className="grow text-xl ">SET {idx + 1}</p>
-                <div>
+              <li
+                className="flex w-full flex-row p-4 brightness-50 md:justify-center"
+                key={idx}
+              >
+                <p className="grow text-xl md:mx-10 md:grow-0">SET {idx + 1}</p>
+                <div className="md:text-xl">
                   {set.reps} REPS / {set.weight}kg
                 </div>
               </li>
@@ -103,7 +106,7 @@ function TrainingPage() {
         </ul>
         {doneSets.length >= 3 && (
           <button
-            className="m-4  w-1/2 rounded-xl border-2 bg-sky-500 py-1 text-2xl"
+            className="m-4  w-1/2 rounded-xl border-2 bg-sky-500 py-1 text-2xl md:w-80"
             onClick={endExerciseBtnHandler}
             ref={EndBtnRef}
           >

@@ -32,21 +32,20 @@ function TrainingTile({
   };
 
   return (
-    <div className="w-1/2 overflow-hidden rounded-2xl bg-gray-700 text-center">
-      <h2 className=" flex items-center justify-center bg-sky-500 p-5 text-lg font-bold">
+    <div className="flex w-1/2 flex-col items-center justify-center  overflow-hidden rounded-2xl bg-gray-700 text-center md:h-1/3 md:w-60 md:basis-1/4">
+      <h2 className=" flex w-full items-center justify-center bg-sky-500 p-5 text-lg font-bold">
         {name}
       </h2>
 
-      <div className="p-2">
-        <ul className="justify-col items-row flex flex-col gap-2">
-          <li>{exercise1}</li>
-          <li>{exercise2}</li>
-          <li>{exercise3}</li>
-        </ul>
-      </div>
+      <ul className="justify-col items-row flex w-full grow flex-col gap-2 p-2 md:justify-around md:text-xl">
+        <li>{exercise1}</li>
+        <li>{exercise2}</li>
+        <li>{exercise3}</li>
+      </ul>
+
       <button
         onClick={startTraining}
-        className="border- m-2 w-3/4 rounded-xl border-4 border-sky-500 bg-gray-500 p-2 text-lg transition hover:bg-sky-500"
+        className="border- m-2 w-3/4 rounded-xl border-4 border-sky-500 bg-gray-500 p-2 text-lg transition hover:bg-sky-500 md:mb-6"
       >
         Start
       </button>
