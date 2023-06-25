@@ -7,7 +7,6 @@ function RepInput({ submitSet, set }) {
   const [weight, setWeight] = useState(8);
 
   const submitButtonHandler = () => {
-    console.log("submit");
     submitSet(reps, weight);
   };
 

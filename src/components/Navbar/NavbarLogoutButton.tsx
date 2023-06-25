@@ -13,11 +13,9 @@ const NavbarLogoutButton = ({ icon }) => {
   const dispatch = useDispatch();
 
   const LogoutHandler = () => {
-    console.log("huj");
     const auth = getAuth();
     signOut(auth)
       .then((result) => {
-        console.log("signOut sucessful");
         dispatch(setUserLogOutState());
       })
       .catch((err) => {
