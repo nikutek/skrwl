@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { flushSync } from "react-dom";
 import RestBar from "../components/RestBar";
+import { FirebaseApp } from "firebase/app";
 
 interface setInfo {
   reps: number;
@@ -17,7 +18,6 @@ function TrainingPage() {
   const [isRest, setisRest] = useState(false);
   const [set, setSet] = useState(1);
   const [doneSets, setDoneSets] = useState<setInfo[]>([]);
-  const [score, setScore] = useState(0);
   const training = useSelector(selectTraining);
   const userToken = useSelector(selectUserToken);
   const navigate = useNavigate();
@@ -26,15 +26,9 @@ function TrainingPage() {
 
   // Przekierowanie po zrobieniu wszystkich ćwiczeń
   useEffect(() => {
-    console.log(training);
-
     if (!training.length) {
-      console.log("koniec");
-
       navigate("/");
     }
-
-    console.log(doneSets, set, score);
   }, [training, set]);
 
   // Zakończenie serii
@@ -54,16 +48,37 @@ function TrainingPage() {
   };
 
   // Zakończenie całego ćwiczenia
-  const endExerciseBtnHandler = () => {
+  const endExerciseBtnHandler = async () => {
     // zapisanie wynikow if zalogowany
     if (userToken) {
       let scoreSum = 0;
       doneSets.forEach((set) => {
         scoreSum += set.reps * set.weight;
       });
-      setScore((currentValue) => {
-        return currentValue + scoreSum;
+
+      // zapis wyników do bazy
+      const date = new Date();
+      console.log({
+        userToken,
+        scoreSum,
+        date: `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`,
       });
+
+      fetch(
+        "https://skurwiel-auth-default-rtdb.europe-west1.firebasedatabase.app/trainings.json",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            user: userToken,
+            score: scoreSum,
+            date: `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`,
+          }),
+        }
+      );
     }
 
     // Cleanup
@@ -73,7 +88,6 @@ function TrainingPage() {
   };
 
   const scrollToBottom = () => {
-    console.log(EndBtnRef.current);
     EndBtnRef?.current?.scrollIntoView();
   };
 
