@@ -58,14 +58,9 @@ function TrainingPage() {
 
       // zapis wyników do bazy
       const date = new Date();
-      console.log({
-        userToken,
-        scoreSum,
-        date: `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`,
-      });
 
       fetch(
-        "https://skurwiel-auth-default-rtdb.europe-west1.firebasedatabase.app/trainings.json",
+        `https://skurwiel-auth-default-rtdb.europe-west1.firebasedatabase.app/trainings/${userToken}.json`,
         {
           method: "POST",
           headers: {
@@ -73,7 +68,7 @@ function TrainingPage() {
             "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
-            user: userToken,
+            exercise: training[0].name,
             score: scoreSum,
             date: `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`,
           }),
