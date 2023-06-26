@@ -24,7 +24,7 @@ function TrainingPage() {
   const dispatch = useDispatch();
   const EndBtnRef = useRef<null | HTMLButtonElement>(null);
 
-  // Przekierowanie po zrobieniu wszystkich ćwiczeń
+  // Sprawdzenie czy zalogowany
   useEffect(() => {
     if (!training.length) {
       navigate("/");
