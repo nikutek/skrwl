@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <div className="  my-3 flex h-fit w-full  flex-col items-center justify-center md:h-screen">
       <h1 className=" m-4 text-center text-xl">
-        Skurwiel: {userName ? userName.split(" ")[0] : "Guest"}
+        Użytkownik: {userName ? userName.split(" ")[0] : "Guest"}
       </h1>
       <div className="flex w-full grow flex-col items-center justify-center gap-5 md:h-full md:flex-row md:flex-wrap md:gap-10 ">
         <TrainingTile
